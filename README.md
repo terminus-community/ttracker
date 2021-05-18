@@ -18,7 +18,7 @@ It'll need:
 
 ## Server-side
 
-* Probably microframework-based, and [Luminus](https://luminusweb.com/docs/guestbook.html) seems nice on the first sight
+* Probably microframework-based, and [Luminus](https://luminusweb.com/docs/guestbook.html) seems nice on the first sight: what I like is [REPL-driven development](https://luminusweb.com/docs/repl.html) idea, what I want to know later is modularity of Luminus (replacing a template engine, for instance)
 * JWT auth routes (People in [this thread](https://www.reddit.com/r/Clojure/comments/9bj8pj/cemerickfriend_or_something_else/) recommend [buddy](https://github.com/funcool/buddy))
 * Admin panel to add and delete users (yes, manually, we can improve it later)
 * Route to start and stop tracking time
