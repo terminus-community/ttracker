@@ -19,6 +19,7 @@ It'll need:
 
 * JWT auth routes
 * Admin panel to add and delete users (yes, manually, we can improve it later)
+* Route to start and stop tracking time
 
 ## Client-side: a GUI app
 
