@@ -1,6 +1,7 @@
 # TTracker
 
 A time-tracker born out of the "we don't know Closure yet" dialog.
+Idea: have a web server backend so team leads and users themselves can view time spent on tasks, have a desktop app to do the tracking.
 
 **Currently the repo is private, let's discuss things first, make MVP, make it public.**
 
