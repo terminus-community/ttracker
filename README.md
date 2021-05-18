@@ -18,7 +18,7 @@ It'll need:
 
 ## Server-side
 
-* JWT auth routes
+* JWT auth routes (People in [this thread](https://www.reddit.com/r/Clojure/comments/9bj8pj/cemerickfriend_or_something_else/) recommend [buddy](https://github.com/funcool/buddy))
 * Admin panel to add and delete users (yes, manually, we can improve it later)
 * Route to start and stop tracking time
 
