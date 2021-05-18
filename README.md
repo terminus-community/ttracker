@@ -1,13 +1,13 @@
 # TTracker
 
-A time-tracker born out of the "we don't know Closure yet" dialog.
-Idea: have a web server backend so team leads and users themselves can view time spent on tasks, have a desktop app to do the tracking.
+A time-tracker born out of the <cite>"we don't know Clojure yet"</cite> dialog.
+Idea: have a web server backend so *teamleads* and *users* themselves can view time spent on tasks, have a desktop app to do the tracking.
 
 **Currently the repo is private, let's discuss things first, make MVP, make it public.**
 
 ## Concept
 
-Essentially, what we'd want is a simple project to **learn closure**.
+Essentially, what we'd want is a simple project to **learn Clojure**.
 
 It'll need:
 
@@ -24,6 +24,10 @@ It'll need:
 * Route to start and stop tracking time
 
 ## Client-side: a GUI app
+
+The application will be browser-based.
+
+Also, it would be sehr cool, if we will be able to implement client-side in ClojureScript, transpilable or in other way compatible with one of popular JS frameworks: Vue.js, React or Angular.
 
 Login:
 
