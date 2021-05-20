@@ -1,0 +1,12 @@
+linux
+	clojure
+		java bash:`sudo apt install openjdk-14-jdk`
+		leiningen 
+			download bash:`curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein > lein`
+			install bash:`sudo mv lein /usr/local/bin/lein`,`sudo chmod a+x /usr/local/bin/lein`
+		clj d:"Clojure with REPL"
+			download bash:`curl -O https://download.clojure.org/install/linux-install-1.10.2.774.sh`
+			setup bash:`chmod +x linux-install-1.10.2.774.sh`
+			install bash:`sudo ./linux-install-1.10.2.774.sh`
+			turn_off_blink_matching_paren file:`~/.inputrc` +:`set blink-matching-paren off`
+				
