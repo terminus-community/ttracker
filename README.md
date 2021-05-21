@@ -131,7 +131,7 @@ We need groups, created by users, so the time tracking happens in groups.
 
 ### Tracking
 
-`/api/tracking/start` - supply project id, user id, stop all active tracking, start tracking on a project if it's in user's groups
-`/api/tracking/stop` - stop tracking on some project
-`/api/tracking/project/count` - count time on a project
-`/api/tracking/count_global` - count global time on all projects
+`/api/tracking/start/` - supply project id, user id, stop all active tracking, start tracking on a project if it's in user's groups
+`/api/tracking/stop` - supply project id, user id, stop tracking on a selected project
+`/api/tracking/project/count` - supply user id, project id, count all time spent time on a project
+`/api/tracking/count_global` - supply user id, count global time on all projects
