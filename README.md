@@ -125,13 +125,13 @@ We need groups, created by users, so the time tracking happens in groups.
 
 ### Projects
 
-* `/api/projects/list/` - list group projects
-* Add project for a group (supply name)
-* Remove a project from a group
+* `/api/projects/list/` - supply user id, group id; check user rights, show list of projects in a group 
+* `/api/projects/add` - supply user id, group id, new project name; add project for a group
+* `/api/projects/` - remove a project from a group
 
 ### Tracking
 
-`/api/tracking/start/` - supply project id, user id, stop all active tracking, start tracking on a project if it's in user's groups
-`/api/tracking/stop` - supply project id, user id, stop tracking on a selected project
-`/api/tracking/project/count` - supply user id, project id, count all time spent time on a project
-`/api/tracking/count_global` - supply user id, count global time on all projects
+* `/api/tracking/start/` - supply project id, user id, stop all active tracking, start tracking on a project if it's in user's groups
+* `/api/tracking/stop` - supply project id, user id, stop tracking on a selected project
+* `/api/tracking/project/count` - supply user id, project id, count all time spent time on a project
+* `/api/tracking/count_global` - supply user id, count global time on all projects
