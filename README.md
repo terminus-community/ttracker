@@ -95,9 +95,8 @@ We need groups, created by users, so the time tracking happens in groups.
 * `/api/auth/refresh/` - refresh a token (JWT). Example: `Content-Type: application/json` (header), `{"token":"<JWT>"}` (body).
 * `/api/auth/verify` - we've closed an app and reopened it, we have the token, it did not expire, so we supply it to login instead. `Content-Type: application/json` (header), `{"token":"<EXISTING_TOKEN>"}` (body).
 * `/api/tracking/<project_id>/start` - start tracking time for a user on `<project_id>`
-
-send_invite (add user to a group)
-remove a group (that's that)
-rename a group
-list users in a group
-view timings inside a group
+* send_invite (add user to a group)
+* remove a group
+* rename a group
+* list users in a group
+* view timings inside a group
