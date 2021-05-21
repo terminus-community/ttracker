@@ -117,12 +117,13 @@ We need groups, created by users, as an abstraction to unite people: companies a
 
 ### Groups
 
-* send_invite (invite user to a group)
-* accept_invite
-* remove a group
-* rename a group
-* list users in a group
-* view timings inside a group
+* `/api/groups/send_invite` - receive a user email as a string or user id, invite user to a group (needs notification mechanism, *I'll have to describe notifications table and a method to refresh said notifications**)
+* `/api/groups/accept_invite` - accepts an invite notification
+* `/api/groups/add` - receive a user id, group name, create a new group, return its id
+* `/api/groups/remove` - receive a group id, user id, session token, check if user can remove group, remove if possible, return an error otherwise
+* `/api/groups/rename` - receive a group id, user id, session token, check if user has rights to remove a group, return an error otherwise
+* `/api/groups/list_users/` - receive a group id, user id, session token, check if user has rights to see the members, list all members in a group
+* `/api/groups/view_timings/user_id` - view timings for a certain user, maybe will need pagination at some point, but in the beginning it's possible to return all
 
 ### Projects
 
