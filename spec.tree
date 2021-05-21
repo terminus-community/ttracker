@@ -1,0 +1,29 @@
+; Parameter names try to follow Ring Spec (https://github.com/ring-clojure/ring/blob/master/SPEC)
+; but
+; instead of 'query-string' here I use the sequence of parameter names - 'request-parameters'. As parameter values are variables and not always important for specification purposes
+specification
+	client_server_actions server-name:127.0.0.1 server-port:8080
+		Baseview_direct request-method:GET uri:`#"/dashboard(\.html)|/baseview(\.html)"` | redirect:Error_404
+		Error_404 | response:404.html
+		unauthorized_state session:`false`
+			Unauthorized_visit request-method:GET uri:/ | redirect:Login_page
+			Login_page request-method:GET uri:/login | response:login.html
+			Authorize request-method:POST uri:/login request-parameters:login,password 
+				on_fail | redirect:Login_failed
+				on_success | redirect:Baseview
+			Register request-method:POST uri:/login request-parameters:name,email,login,password client-form-validation:<true>
+				on_fail | redirect:Register
+				on_success | redirect:Baseview
+		authorized_state session:`true`
+			Baseview request-method:GET uri:/ request-parameters:mode=baseview | response:dashboard.html
+			Create_project request-method:POST uri:/add request-parameters:project
+				on_fail
+				on_success
+			Delete_project request-method:DELETE uri:/delete request-parameters:projectid | action:change-db,update-page 
+			Update_project request-method:PUT uri:/update request-parameters:projectid | action:change-db,update-page 
+			Pick_project request-method:PUT uri:/ request-parameters:projectid | action:change-db,update-page
+			Start_work request-method:POST uri:/start request-parameters:userid | action:create-process 
+			Sync_state request-method:PUT uri:/sync request-parameters:activities-stat freq:60s | action:change-state
+				on_idle | action:? d:"somehow to describe a process of updating the states on the connected clients, 'broadcast-change'?"
+		
+		
