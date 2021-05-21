@@ -41,7 +41,7 @@ Main view:
 * when a project is picked, enable "start" button
 * track when user has no activity, show a pause notification, pause tracking in 1 minute
 
-## API
+## DB
 
 ### Models
 
@@ -71,9 +71,33 @@ We should store all user sessions somewhere. The fact we'd store them in a DB is
 * `token` (text)
 * `token_datetime` (datetime type for current DB implementation)
 
+### Groups
+
+We need groups, created by users, so the time tracking happens in groups.
+
+* `id` (`serial`, autoincremented integer type)
+* `name` (`text`, name of a group, may have a character length limit or not, up to discussion)
+
+### User-group relations (`usergroup`)
+
+* `id` (`serial`, autoincremented integer type)
+* `user_id` (`int`) - a foreign key to user
+* `group_id` (`int`) - a foreign key to a group
+* `is_owner` (`bool`) - can add users to groups, remove a group, rename a group, view timings inside a group
+* `is_mod` (`bool`) - can view a list of people in a group, view timings for other users
+
+## API
+
 ### Routes
 
 * `/api/auth/register/` - let's not implement email verification yet, accept email and password, check if there is no such email in use, create an `auth` table record.
 * `/api/auth/login/` - verify a password by iterative hashing, return an error on failure and an auth token on success (JWT routes). Example request: `Content-Type: application/json` (header), `{"username": "Petya", "password":"IAm1st"}` or `{"email": "Peter@example.com", "password":"IAm1st"}` (body).
 * `/api/auth/refresh/` - refresh a token (JWT). Example: `Content-Type: application/json` (header), `{"token":"<JWT>"}` (body).
 * `/api/auth/verify` - we've closed an app and reopened it, we have the token, it did not expire, so we supply it to login instead. `Content-Type: application/json` (header), `{"token":"<EXISTING_TOKEN>"}` (body).
+* `/api/tracking/<project_id>/start` - start tracking time for a user on `<project_id>`
+
+send_invite (add user to a group)
+remove a group (that's that)
+rename a group
+list users in a group
+view timings inside a group
