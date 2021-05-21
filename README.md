@@ -102,6 +102,13 @@ We need groups, created by users, as an abstraction to unite people: companies a
 * `is_owner` (`bool`) - can add users to groups, remove a group, rename a group, view timings inside a group
 * `is_mod` (`bool`) - can view a list of people in a group, view timings for other users
 
+### Invites (`invite`)
+
+* `id` (`serial`, autoincremented integer type)
+* `inviter_id` - a foreign key to inviting user
+* `group_id` - a foreign key to group the user is invited into
+* `invitee_id` - a foreign key to user invited to a group
+
 ## API
 
 ### Auth
@@ -117,7 +124,8 @@ We need groups, created by users, as an abstraction to unite people: companies a
 
 ### Groups
 
-* `/api/groups/send_invite` - receive a user email as a string or user id, invite user to a group (needs notification mechanism, *I'll have to describe notifications table and a method to refresh said notifications**)
+* `/api/groups/send_invite` - receive a user email as a string or user id, invite user to a group
+* `/api/groups/check_invites` - check for existing invites, needs a regular (1 min) refresh interval and makes me think that tracking events and this part fit into a common WebSocket API, to be honest.
 * `/api/groups/accept_invite` - accepts an invite notification
 * `/api/groups/add` - receive a user id, group name, create a new group, return its id
 * `/api/groups/remove` - receive a group id, user id, session token, check if user can remove group, remove if possible, return an error otherwise
