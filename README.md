@@ -73,7 +73,8 @@ We should store all user sessions somewhere. The fact we'd store them in a DB is
 
 ### Groups (`auth_group`)
 
-We need groups, created by users, so the time tracking happens in groups.
+We need groups, created by users, as an abstraction to unite people: companies are not the best principle to unite, since they can create confusion.
+[RBAC](https://en.wikipedia.org/wiki/Role-based_access_control) is too complex.
 
 * `id` (`serial`, autoincremented integer type)
 * `name` (`text`, name of a group, may have a character length limit or not, up to discussion)
