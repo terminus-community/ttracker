@@ -3,7 +3,7 @@
 A time-tracker born out of the <cite>"we don't know Clojure yet"</cite> dialog.
 Idea: have a web server backend so *teamleads* and *users* themselves can view time spent on tasks, have a desktop app to do the tracking.
 
-**Currently the repo is private, let's discuss things first, make MVP, make it public.**
+<!-- **Currently the repo is private, let's discuss things first, make MVP, make it public.** -->
 
 ## Concept
 
@@ -135,7 +135,7 @@ We need groups, created by users, as an abstraction to unite people: companies a
 
 ### Projects
 
-* `/api/projects/list/` - supply user id, group id; check user rights, show list of projects in a group 
+* `/api/projects/list/` - supply user id, group id; check user rights, show list of projects in a group
 * `/api/projects/add` - supply user id, group id, new project name; add project for a group
 * `/api/projects/` - remove a project from a group
 
