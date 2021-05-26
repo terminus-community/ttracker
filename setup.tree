@@ -9,6 +9,21 @@ linux distr:Ubuntu
 			setup bash:`chmod +x linux-install-1.10.2.774.sh`
 			install bash:`sudo ./linux-install-1.10.2.774.sh`
 			turn_off_blink_matching_paren file:`~/.inputrc` +:`set blink-matching-paren off`
+	atom d:"setup for Atom editor"
+		install_repl plugin:chlorine,ink,platformio-ide-terminal
+		install_lisp_coding_plugins plugin:parinfer 
+		start_socket_repl bash:`clj -J'-Dclojure.server.repl={:port,5555,:accept,clojure.core.server/repl}'` alias-bash:`clj -M:socket` alias-file:`~/.clojure/deps.edn`
+		connect_atom_to_repl atom-cmd:`chlorine:connect_socket_repl` key-binding:`ctrl-; y` server:127.0.0.1 port:5555 rem:"open command panel with 'Ctrl-Shift-P' or use the keyboard shortcut"		
+	clojurescript
+		npm bash:`sudo apt install npm`
+		lumo bash:`sudo npm install -g lumo-cljs`
+		start_socket_repl bash:`lumo -n 3322`
+		connect_atom_to_repl atom-cmd:`chlorine:connect_socket_repl` server:127.0.0.1 port:3322
+	libraries
+		add_libraries d:"edit project.clj"
+		install_libraries bash:`lein deps`
 	server
 		nginx
+	test
+		simple_run bash:`lein run -m ttracker.server` open-url:http://localhost:8080
 				
